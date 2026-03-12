@@ -1,6 +1,15 @@
 // Main exports
 
-export { type AiMessage, toAiMessages } from "./ai";
+export {
+  type AiAssistantMessage,
+  type AiFilePart,
+  type AiImagePart,
+  type AiMessage,
+  type AiMessagePart,
+  type AiTextPart,
+  type AiUserMessage,
+  toAiMessages,
+} from "./ai";
 export {
   ChannelImpl,
   deriveChannelId,
@@ -275,6 +284,7 @@ export type {
   FetchResult,
   FileUpload,
   FormattedContent,
+  LinkPreview,
   ListThreadsOptions,
   ListThreadsResult,
   Lock,
