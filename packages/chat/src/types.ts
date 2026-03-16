@@ -148,6 +148,9 @@ export interface Adapter<TThreadId = unknown, TRawMessage = unknown> {
   /** Delete a message */
   deleteMessage(threadId: string, messageId: string): Promise<void>;
 
+  /** Cleanup hook called when Chat instance is shutdown */
+  disconnect?(): Promise<void>;
+
   /** Edit an existing message */
   editMessage(
     threadId: string,

@@ -319,6 +319,22 @@ export class Chat<
    */
   async shutdown(): Promise<void> {
     this.logger.info("Shutting down chat instance...");
+    const shutdownPromises = Array.from(this.adapters.values()).map(
+      async (adapter) => {
+        if (!adapter.disconnect) {
+          return;
+        }
+        this.logger.debug("Disconnecting adapter", adapter.name);
+        await adapter.disconnect();
+        this.logger.debug("Adapter disconnected", adapter.name);
+      }
+    );
+    const results = await Promise.allSettled(shutdownPromises);
+    for (const result of results) {
+      if (result.status === "rejected") {
+        this.logger.error("Adapter disconnect failed", result.reason);
+      }
+    }
     await this._stateAdapter.disconnect();
     this.initialized = false;
     this.initPromise = null;
