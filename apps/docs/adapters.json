@@ -183,6 +183,16 @@
     "readme": "https://github.com/rama-adi/chat-adapter-baileys"
   },
   {
+    "name": "Kapso WhatsApp",
+    "slug": "kapso",
+    "type": "platform",
+    "community": true,
+    "description": "WhatsApp adapter for Chat SDK via Kapso.",
+    "packageName": "@luicho/kapso-chat-sdk",
+    "author": "luicho9",
+    "readme": "https://github.com/luicho9/kapso-chat-sdk"
+  },
+  {
     "name": "Instagram",
     "slug": "instagram",
     "type": "platform",
